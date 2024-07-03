@@ -1,0 +1,50 @@
+.cart-animate {
+  animation: bounce 1s;
+  display: flex;
+}
+
+.wishlist-animate {
+  animation: bounce 1s;
+  display: flex;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .nav-link .fa-shopping-cart,
+  .nav-link .fa-heart {
+    font-size: 1.2rem;
+  }
+}
