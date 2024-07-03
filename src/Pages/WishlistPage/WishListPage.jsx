@@ -16,7 +16,7 @@ export const WishlistPage = ({
       <hr />
       <Row>
         {wishlistItems.map((item, index) => (
-          <Col key={index} md={4}>
+          <Col key={index} md={4} className="mb-4">
             <Card
               className="mb-2 p-2"
               style={{
@@ -43,10 +43,13 @@ export const WishlistPage = ({
                     textAlign: "left",
 
                     width: "max-content",
-                    display: "inline",
+                    display: "flex",
+                    color: "blue",
+                    alignItems: "center",
+                    gap: "5px",
                   }}
                 >
-                  <FaStar color="yellow" /> {item.rating.rate}
+                  <FaStar color="#ffc107" /> {item.rating.rate}
                 </Card.Text>
                 <div className="d-flex justify-content-center gap-2">
                   <Button variant="primary" onClick={() => onAddToCart(item)}>

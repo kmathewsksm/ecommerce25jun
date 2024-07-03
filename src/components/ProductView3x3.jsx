@@ -2,14 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Col, Row, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaHeart, FaSearch, FaShoppingCart, FaStar } from "react-icons/fa";
+import { FaHeart, FaStar } from "react-icons/fa";
 import "./ProductView3x3.css";
 
-export const ProductView3x3 = ({
-  selectedCategories,
-  onAddToCart,
-  onAddToWishlist,
-}) => {
+export const ProductView3x3 = ({ selectedCategories, onAddToWishlist }) => {
   const [productsList, setProductsList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -72,16 +68,10 @@ export const ProductView3x3 = ({
                   $ {product.price}
                 </Card.Text>
                 <Card.Text className="product-rating">
-                  <FaStar color="yellow" /> {product.rating.rate}
+                  <FaStar color="#ffc107" />
+                  <div style={{ color: "blue" }}>{product.rating.rate}</div>
                 </Card.Text>
                 <div className="mt-auto d-flex justify-content-center gap-1">
-                  <Button
-                    className="bounce-animation"
-                    variant="primary"
-                    onClick={() => onAddToCart(product)}
-                  >
-                    <FaShoppingCart />
-                  </Button>
                   <Button
                     className="bounce-animation"
                     variant="secondary"

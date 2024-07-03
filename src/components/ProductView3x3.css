@@ -27,7 +27,9 @@
   margin-bottom: 10px;
   text-align: left;
   width: max-content;
-  display: inline;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .product-card .card-body {

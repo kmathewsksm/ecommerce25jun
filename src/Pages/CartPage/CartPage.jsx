@@ -9,7 +9,7 @@ export const CartPage = ({ cartItems, onRemoveFromCart, onQuantityChange }) => {
       <hr />
       <Row>
         {cartItems.map((item, index) => (
-          <Col key={index} md={4}>
+          <Col key={index} md={4} className="mb-4">
             <Card
               className="mb-4 p-2"
               style={{
@@ -34,10 +34,13 @@ export const CartPage = ({ cartItems, onRemoveFromCart, onQuantityChange }) => {
                     marginBottom: "10px",
                     textAlign: "left",
                     width: "max-content",
-                    display: "inline",
+                    display: "flex",
+                    color: "blue",
+                    alignItems: "center",
+                    gap: "5px",
                   }}
                 >
-                  <FaStar color="yellow" /> {item.rating.rate}
+                  <FaStar color="#ffc107" /> {item.rating.rate}
                 </Card.Text>
                 <Card.Text>
                   Quantity :{" "}

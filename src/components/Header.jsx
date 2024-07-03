@@ -22,6 +22,11 @@ export function Header({
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+            style={{ width: "50px" }}
+            alt="logo"
+          />
           Ecommerce
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -47,9 +52,10 @@ export function Header({
                         className="ms-2"
                         style={{
                           position: "absolute",
-                          top: "-1px",
-                          right: "-1px",
+                          top: "3px",
+                          right: "1px",
                           transform: "translate(50%, -50%)",
+                          fontSize: "0.6rem",
                         }}
                       >
                         {cartItems.length}
@@ -71,9 +77,10 @@ export function Header({
                         className="ms-2"
                         style={{
                           position: "absolute",
-                          top: "-1px",
-                          right: "-1px",
+                          top: "3px",
+                          right: "1px",
                           transform: "translate(50%, -50%)",
+                          fontSize: "0.6rem",
                         }}
                       >
                         {wishlistItems.length}
