@@ -69,7 +69,10 @@ export const ProductView3x3 = ({ selectedCategories, onAddToWishlist }) => {
                 </Card.Text>
                 <Card.Text className="product-rating">
                   <FaStar color="#ffc107" />
-                  <div style={{ color: "blue" }}>{product.rating.rate}</div>
+                  <div style={{ color: "blue" }}>
+                    {product.rating.rate}
+                  </div>{" "}
+                  <div>({product.rating.count} ratings)</div>
                 </Card.Text>
                 <div className="mt-auto d-flex justify-content-center gap-1">
                   <Button

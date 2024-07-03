@@ -41,6 +41,9 @@ export const CartPage = ({ cartItems, onRemoveFromCart, onQuantityChange }) => {
                   }}
                 >
                   <FaStar color="#ffc107" /> {item.rating.rate}
+                  <div style={{ color: "black" }}>
+                    ({item.rating.count} ratings)
+                  </div>
                 </Card.Text>
                 <Card.Text>
                   Quantity :{" "}

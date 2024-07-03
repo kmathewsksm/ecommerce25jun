@@ -49,7 +49,10 @@ export const WishlistPage = ({
                     gap: "5px",
                   }}
                 >
-                  <FaStar color="#ffc107" /> {item.rating.rate}
+                  <FaStar color="#ffc107" /> {item.rating.rate}{" "}
+                  <div style={{ color: "black" }}>
+                    ({item.rating.count} ratings)
+                  </div>
                 </Card.Text>
                 <div className="d-flex justify-content-center gap-2">
                   <Button variant="primary" onClick={() => onAddToCart(item)}>

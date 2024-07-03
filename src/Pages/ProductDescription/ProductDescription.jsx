@@ -69,6 +69,9 @@ export const ProductDescription = ({ onAddToCart, onAddToWishlist }) => {
           <h4 className="text-success">$ {product.price}</h4>
           <div className="rating mb-3">
             <FaStar color="#ffc107" /> {product.rating.rate}
+            <div style={{ color: "black" }}>
+              ({product.rating.count}ratings)
+            </div>
           </div>
           <p className="text-muted">{product.description}</p>
           <div className="d-flex justify-content-start mt-4">
