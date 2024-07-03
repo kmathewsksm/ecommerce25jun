@@ -6,7 +6,13 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Badge from "react-bootstrap/Badge";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import {
+  FaHeart,
+  FaShoppingCart,
+  FaTrash,
+  FaUser,
+  FaUserAlt,
+} from "react-icons/fa";
 import "./Header.css";
 
 export function Header({
@@ -92,7 +98,14 @@ export function Header({
             )}
 
             {isLoggedIn ? (
-              <NavDropdown title={username} id="basic-nav-dropdown">
+              <NavDropdown
+                title={
+                  <>
+                    {<FaUser />} {username}
+                  </>
+                }
+                id="basic-nav-dropdown"
+              >
                 <NavDropdown.Item onClick={onLogout}>Logout</NavDropdown.Item>
               </NavDropdown>
             ) : (
