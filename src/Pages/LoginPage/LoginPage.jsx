@@ -13,14 +13,16 @@ import users from "../../assets/users.json";
 export function LoginPage({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isValid, setisValid] = useState(null);
 
   const handleLogin = () => {
     const isValid = validateUser(username, password);
     if (isValid) {
       console.log("Login successful");
       onLogin(username);
+      setisValid(true)
     } else {
-      console.log("Login failed");
+      setisValid(false)
     }
   };
 
@@ -57,14 +59,18 @@ export function LoginPage({ onLogin }) {
               onChange={(e) => setUsername(e.target.value)}
             />
             <MDBInput
-              wrapperClass="mb-4"
+              wrapperClass="mb-2"
               placeholder="Password"
               id="txtpassword"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-
+            {isValid === false && 
+            <span className="mb-2 mt-0" style={{color: "red"}}>
+              The username or password is incorrect
+            </span>
+}
             <div className="text-center pt-1 mb-5 pb-1">
               <MDBBtn
                 className="mb-4 w-100 gradient-custom-2"

@@ -49,7 +49,7 @@ export function Header({
                       <Badge
                         pill
                         bg="danger"
-                        className="ms-2"
+                        className="ms-2 p-1"
                         style={{
                           position: "absolute",
                           top: "-1px",
@@ -73,7 +73,7 @@ export function Header({
                       <Badge
                         pill
                         bg="danger"
-                        className="ms-2"
+                        className="ms-2 p-1"
                         style={{
                           position: "absolute",
                           top: "-1px",
