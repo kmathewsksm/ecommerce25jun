@@ -25,6 +25,7 @@ export function CategoriesSidePanel({ onCategoryChange }) {
 
   return (
     <>
+    {categoriesList?.length > 0 &&
       <div style={{ marginTop: "5rem" }}>
         <h3>Categories</h3>
         <hr />
@@ -39,6 +40,7 @@ export function CategoriesSidePanel({ onCategoryChange }) {
           </Col>
         ))}
       </div>
+    }
     </>
   );
 }

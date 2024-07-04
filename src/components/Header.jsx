@@ -35,7 +35,7 @@ export function Header({
             {isLoggedIn && (
               <>
                 <div
-                  style={{ display: "flex", gap: "10px", marginRight: "10px" }}
+                  style={{ display: "flex", gap: "10px", marginRight: "20px" }}
                 >
                   <Nav.Link
                     as={Link}
@@ -85,19 +85,20 @@ export function Header({
                       </Badge>
                     </div>
                   </Nav.Link>
-                </div>
-              </>
-            )}
-
-            {isLoggedIn ? (
-              <div className="d-flex align-items-center" style={{fontSize: "18px", marginTop: "8px", marginLeft: "4px"}}>
+                  <div className="d-flex align-items-center" style={{fontSize: "18px", marginTop: "8px", marginLeft: "4px"}}>
                <FaUser color="white" />
-              <NavDropdown title={username} id="basic-nav-dropdown" className="user-info">
+              <NavDropdown title={username} id="basic-nav-dropdown" className="user-info" d>
+                <NavDropdown.Item style={{color: "black"}} href="#action/3.1">Account</NavDropdown.Item>
+              <NavDropdown.Item style={{color: "black"}} href="#action/3.2">
+                Addresses
+              </NavDropdown.Item>
+              <NavDropdown.Item style={{color: "black"}} href="#action/3.3">Orders</NavDropdown.Item>
+              <NavDropdown.Divider />
                 <NavDropdown.Item onClick={onLogout} style={{color: "black"}}>Logout</NavDropdown.Item>
               </NavDropdown>
               </div>
-            ) : (
-              ""
+                </div>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>

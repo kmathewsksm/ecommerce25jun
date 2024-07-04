@@ -119,6 +119,8 @@ function App() {
                   <HomePage
                     onAddToCart={handleAddToCart}
                     onAddToWishlist={handleAddToWishlist}
+                    wishlistItems={wishlistItems}
+                    onRemoveFromWishlist={handleRemoveFromWishlist}
                   />
                 }
               />
@@ -133,6 +135,8 @@ function App() {
                   <ProductDescription
                     onAddToCart={handleAddToCart}
                     onAddToWishlist={handleAddToWishlist}
+                    wishlistItems={wishlistItems}
+                    onRemoveFromWishlist={handleRemoveFromWishlist}
                   />
                 }
               />

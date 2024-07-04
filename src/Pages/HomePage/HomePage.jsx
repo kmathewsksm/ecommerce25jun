@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Container, Col, Row } from "react-bootstrap";
 import "./HomePage.css";
 
-export function HomePage({ onAddToCart, onAddToWishlist }) {
+export function HomePage({ onAddToCart, onAddToWishlist, wishlistItems, onRemoveFromWishlist }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const handleCategoryChange = (category) => {
@@ -29,6 +29,8 @@ export function HomePage({ onAddToCart, onAddToWishlist }) {
             selectedCategories={selectedCategories}
             onAddToCart={onAddToCart}
             onAddToWishlist={onAddToWishlist}
+            wishlistItems={wishlistItems}
+            onRemoveFromWishlist={onRemoveFromWishlist}
           />
         </Col>
       </Row>

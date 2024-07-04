@@ -9,6 +9,8 @@ export const ProductView3x3 = ({
   selectedCategories,
   onAddToCart,
   onAddToWishlist,
+  wishlistItems,
+  onRemoveFromWishlist
 }) => {
   const [productsList, setProductsList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -39,18 +41,23 @@ export const ProductView3x3 = ({
         selectedCategories.includes(product.category)
     );
 
+    const wishlistedIds = wishlistItems.map((item) => item.id)
+
   return (
-    <div>
+    <>
+    {
+      filteredProducts?.length > 0 && 
+    (<div>
       <div className="search-container">
-  <input
-    type="text"
-    placeholder="Search for products"
-    value={searchTerm}
-    onChange={handleSearch}
-    className="search-input"
-  />
-  <FaSearch className="search-icon" />
-</div>
+      <input
+        type="text"
+        placeholder="Search for products"
+        value={searchTerm}
+        onChange={handleSearch}
+        className="search-input"
+      />
+      <FaSearch className="search-icon" />
+    </div>
       <hr style={{ color: "white" }} />
       <Row>
         {filteredProducts.map((product) => (
@@ -58,7 +65,12 @@ export const ProductView3x3 = ({
           <Link to={`/product/${product.id}`} style={{textDecoration: "none"}}>
             <Card className="product-card">
               <div className="d-flex justify-content-end">
-              <FaHeart color="#cbc2c2" style={{border: "1px"}} onClick={() => onAddToWishlist(product)} />
+              <FaHeart color={wishlistedIds?.includes(product.id) ? "red" : "#cbc2c2"} style={{border: "1px", cursor: "pointer"}} onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if(wishlistedIds?.includes(product.id)) onRemoveFromWishlist(product)
+                else onAddToWishlist(product)
+              }} />
               </div>
                 <Card.Img
                   variant="top"
@@ -86,6 +98,8 @@ export const ProductView3x3 = ({
           </Col>
         ))}
       </Row>
-    </div>
+    </div>)
+    }
+    </>
   );
 };

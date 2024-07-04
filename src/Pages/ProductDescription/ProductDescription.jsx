@@ -5,7 +5,7 @@ import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import { FaHeart, FaShoppingCart, FaStar } from "react-icons/fa";
 import "./ProductDescription.css";
 
-export const ProductDescription = ({ onAddToCart, onAddToWishlist }) => {
+export const ProductDescription = ({ onAddToCart, onAddToWishlist, wishlistItems, onRemoveFromWishlist }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -27,12 +27,17 @@ export const ProductDescription = ({ onAddToCart, onAddToWishlist }) => {
     return <div>Loading...</div>;
   }
 
+  const wishlistedIds = wishlistItems.map((item) => item.id)
+
   return (
     <Container className="product-description">
       <Row>
         <Col md={4} className="d-flex flex-column justify-content-center border p-3 pic-section">
-          <div className="d-flex justify-content-end">
-                <FaHeart color="#cbc2c2" className="mr-2" onClick={() => onAddToWishlist(product)} />
+          <div className="d-flex justify-content-end" style={{cursor: "pointer"}}>
+                <FaHeart color={wishlistedIds?.includes(product.id) ? "red" : "#cbc2c2"} onClick={() => {
+                  if(wishlistedIds?.includes(product.id)) onRemoveFromWishlist(product)
+                  else onAddToWishlist(product)
+                }} />
             </div>
             <div className="d-flex justify-content-center">
           <Image src={product.image} className="product-page-image" rounded />
