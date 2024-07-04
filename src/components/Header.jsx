@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Badge from "react-bootstrap/Badge";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Header.css";
 
 export function Header({
@@ -19,14 +19,19 @@ export function Header({
   wishlistAnimate,
 }) {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" className={isLoggedIn ? "app-header" : ''}>
       <Container>
         <Navbar.Brand as={Link} to="/">
-          Ecommerce
+        <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                style={{ width: "50px" }}
+                alt="logo"
+              />
+          FlixKart
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto d-flex">
             {isLoggedIn && (
               <>
                 <div
@@ -40,7 +45,7 @@ export function Header({
                     <div
                       style={{ position: "relative", display: "inline-block" }}
                     >
-                      <FaShoppingCart />{" "}
+                      <FaShoppingCart color="white" />{" "}
                       <Badge
                         pill
                         bg="danger"
@@ -64,7 +69,7 @@ export function Header({
                     <div
                       style={{ position: "relative", display: "inline-block" }}
                     >
-                      <FaHeart />{" "}
+                      <FaHeart color="white" />{" "}
                       <Badge
                         pill
                         bg="danger"
@@ -85,9 +90,12 @@ export function Header({
             )}
 
             {isLoggedIn ? (
-              <NavDropdown title={username} id="basic-nav-dropdown">
-                <NavDropdown.Item onClick={onLogout}>Logout</NavDropdown.Item>
+              <div className="d-flex align-items-center" style={{fontSize: "18px", marginTop: "8px", marginLeft: "4px"}}>
+               <FaUser color="white" />
+              <NavDropdown title={username} id="basic-nav-dropdown" className="user-info">
+                <NavDropdown.Item onClick={onLogout} style={{color: "black"}}>Logout</NavDropdown.Item>
               </NavDropdown>
+              </div>
             ) : (
               ""
             )}

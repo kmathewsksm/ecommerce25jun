@@ -3,6 +3,10 @@
   flex-direction: row;
 }
 
+.home-wrapper{
+  padding-top: 75px;
+}
+
 .categoriessidepanel {
   padding: 1rem;
   border-style: solid;
@@ -25,6 +29,7 @@
 
 .side-panel-col {
   margin-top: 1rem;
+  border-right: 1px solid #cbc2c2;
 }
 
 .product-view-col {

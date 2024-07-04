@@ -8,6 +8,17 @@
   display: flex;
 }
 
+.app-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 75px;
+}
+
+.user-info a{
+  color: white;
+}
+
 @keyframes bounce {
   0%,
   20%,

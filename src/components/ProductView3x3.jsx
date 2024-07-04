@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Col, Row, Card, Button } from "react-bootstrap";
+import { Col, Row, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaHeart, FaSearch, FaShoppingCart, FaStar } from "react-icons/fa";
 import "./ProductView3x3.css";
@@ -40,61 +40,52 @@ export const ProductView3x3 = ({
     );
 
   return (
-    <>
-      <div
-        style={{ marginTop: "1rem", display: "flex", justifyContent: "center" }}
-      >
-        <input
-          style={{ borderRadius: "5px", borderColor: "black", width: "50%" }}
-          type="text"
-          placeholder="Search for your item"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-      </div>
+    <div>
+      <div className="search-container">
+  <input
+    type="text"
+    placeholder="Search for products"
+    value={searchTerm}
+    onChange={handleSearch}
+    className="search-input"
+  />
+  <FaSearch className="search-icon" />
+</div>
       <hr style={{ color: "white" }} />
       <Row>
         {filteredProducts.map((product) => (
           <Col key={product.id} sm={12} md={4} lg={4} className="mb-4">
+          <Link to={`/product/${product.id}`} style={{textDecoration: "none"}}>
             <Card className="product-card">
-              <Link to={`/product/${product.id}`}>
+              <div className="d-flex justify-content-end">
+              <FaHeart color="#cbc2c2" style={{border: "1px"}} onClick={() => onAddToWishlist(product)} />
+              </div>
                 <Card.Img
                   variant="top"
                   src={product.image}
                   className="product-image"
                 />
-              </Link>
-              <Card.Body className="d-flex flex-column">
-                <Card.Title className="product-title">
+              <Card.Body className="d-flex flex-column justify-content-between" style={{paddingBottom: "0"}}>
+                <div>
+                <Card.Title className="product-title" style={{fontSize: "16px"}}>
                   {product.title}
                 </Card.Title>
-                <Card.Text className="product-price">
-                  $ {product.price}
-                </Card.Text>
-                <Card.Text className="product-rating">
-                  <FaStar color="yellow" /> {product.rating.rate}
-                </Card.Text>
-                <div className="mt-auto d-flex justify-content-center gap-1">
-                  <Button
-                    className="bounce-animation"
-                    variant="primary"
-                    onClick={() => onAddToCart(product)}
-                  >
-                    <FaShoppingCart />
-                  </Button>
-                  <Button
-                    className="bounce-animation"
-                    variant="secondary"
-                    onClick={() => onAddToWishlist(product)}
-                  >
-                    <FaHeart />
-                  </Button>
+                </div>
+                <div className="d-flex justify-content-between align-items-center" style={{marginBottom: "0 !important", marginTop:"1rem"}}>
+                <div>
+                <span style={{fontWeight: "500", color: "#03a685"}}>$ {product.price}</span>
+                </div>
+                <div className="d-flex align-items-center" style={{fontWeight: "500"}}>
+                  {product.rating.rate}
+                  <FaStar color="#1D85FC" style={{marginLeft: "4px"}} /> 
+                </div>
                 </div>
               </Card.Body>
             </Card>
+              </Link>
           </Col>
         ))}
       </Row>
-    </>
+    </div>
   );
 };

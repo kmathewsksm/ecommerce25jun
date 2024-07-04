@@ -44,10 +44,9 @@ export function LoginPage({ onLogin }) {
                 style={{ width: "185px" }}
                 alt="logo"
               />
-              <h4 className="mt-1 mb-5 pb-1">Ecommerce</h4>
             </div>
 
-            <p>Please login to your account</p>
+            <h4>Login</h4>
 
             <MDBInput
               wrapperClass="mb-4"

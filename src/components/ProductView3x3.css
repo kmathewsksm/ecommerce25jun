@@ -3,11 +3,17 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  border: 1px solid #cbc2c2;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;;
+}
+
+.product-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .product-image {
   object-fit: contain;
-  max-height: 150px;
+  height: 150px;
 }
 
 .product-title,
@@ -27,17 +33,43 @@
   margin-bottom: 10px;
   text-align: left;
   width: max-content;
-  display: inline;
+  display: flex;
+  align-items: center;
 }
 
 .product-card .card-body {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .product-card .btn {
   width: 30%;
   margin-bottom: 1px;
+}
+
+.search-container {
+  margin-top: 1rem;
+  display: flex;
+  position: relative; /* Position relative to place the icon absolutely inside */
+  width: 100%;
+}
+
+.search-input {
+  border-radius: 5px;
+  border: 1px solid #282c3f;
+  width: 100%;
+  padding: 8px;
+  padding-right: 2.5rem; /* Add some padding to make space for the icon */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px; /* Position the icon 10px from the right edge */
+  top: 50%;
+  transform: translateY(-50%); /* Center the icon vertically */
+  cursor: pointer;
 }
 
 @keyframes bounce {

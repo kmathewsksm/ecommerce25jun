@@ -28,32 +28,32 @@ export const ProductDescription = ({ onAddToCart, onAddToWishlist }) => {
   }
 
   return (
-    <Container className="product-description mt-8">
+    <Container className="product-description">
       <Row>
-        <Col md={6} className="d-flex justify-content-center">
-          <Image src={product.image} className="product-image" rounded />
-        </Col>
-        <Col md={6}>
-          <h2>{product.title}</h2>
-          <h4 className="text-success">$ {product.price}</h4>
-          <div className="rating mb-3">
-            <FaStar color="yellow" /> {product.rating.rate}
+        <Col md={4} className="d-flex flex-column justify-content-center border p-3 pic-section">
+          <div className="d-flex justify-content-end">
+                <FaHeart color="#cbc2c2" className="mr-2" onClick={() => onAddToWishlist(product)} />
+            </div>
+            <div className="d-flex justify-content-center">
+          <Image src={product.image} className="product-page-image" rounded />
           </div>
+        </Col>
+        <Col md={8}>
+          <h3>{product.title}</h3>
           <p className="text-muted">{product.description}</p>
-          <div className="d-flex justify-content-start gap-2 mt-4">
+          <div className="rating mb-3 d-flex align-items-center">
+            <span style={{fontWeight: "bold"}}>{product.rating.rate}</span>
+            <FaStar color="#1D85FC" style={{marginLeft: "4px"}} /> <span style={{fontWeight: "400", fontSize: "16px", marginLeft: "4px"}}>({product.rating.count} ratings)</span>
+          </div>
+          <hr />
+          <div className="d-flex justify-content-between gap-2 mt-4">
+          <h4>$ {product.price} <span class="price-info">inclusive of all taxes</span></h4>
             <Button
-              variant="primary"
               onClick={() => onAddToCart(product)}
               className="d-flex align-items-center"
+              style={{backgroundColor:"#1D85FC"}}
             >
-              <FaShoppingCart className="mr-2" />
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={() => onAddToWishlist(product)}
-              className="d-flex align-items-center"
-            >
-              <FaHeart className="mr-2" />
+              <FaShoppingCart style={{marginRight: "8px"}} /> Add to cart
             </Button>
           </div>
         </Col>

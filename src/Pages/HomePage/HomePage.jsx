@@ -19,7 +19,7 @@ export function HomePage({ onAddToCart, onAddToWishlist }) {
   };
 
   return (
-    <Container>
+    <Container className="home-wrapper">
       <Row>
         <Col md={3} className="side-panel-col">
           <CategoriesSidePanel onCategoryChange={handleCategoryChange} />

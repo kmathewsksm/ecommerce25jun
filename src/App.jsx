@@ -12,6 +12,7 @@ import {
 import { WishlistPage } from "./Pages/WishlistPage/WishListPage";
 import { CartPage } from "./Pages/CartPage/CartPage";
 import { LoginPage } from "./Pages/LoginPage/LoginPage";
+import users from "../src/assets/users.json"
 
 const PrivateRoute = ({ element, isLoggedIn, ...rest }) => {
   return isLoggedIn ? element : <Navigate to="/login" />;
@@ -77,7 +78,8 @@ function App() {
 
   const handleLogin = (username) => {
     setIsLoggedIn(true);
-    setUsername(username);
+    const firstName = users.find(user => user.username === username)?.name.firstname;
+    setUsername(firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase());
   };
 
   const handleLogout = () => {

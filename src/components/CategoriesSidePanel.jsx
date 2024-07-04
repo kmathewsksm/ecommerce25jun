@@ -25,7 +25,7 @@ export function CategoriesSidePanel({ onCategoryChange }) {
 
   return (
     <>
-      <div style={{ marginTop: "1rem" }}>
+      <div style={{ marginTop: "5rem" }}>
         <h3>Categories</h3>
         <hr />
         {categoriesList.map((category, index) => (
@@ -33,7 +33,7 @@ export function CategoriesSidePanel({ onCategoryChange }) {
             <Form.Check
               type="checkbox"
               id={`category-${index}`}
-              label={category}
+              label={category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()}
               onChange={() => handleCategoryChange(category)}
             />
           </Col>
